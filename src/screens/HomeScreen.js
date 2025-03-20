@@ -200,12 +200,12 @@ const styles = StyleSheet.create({
         height: 30,
     },
     iconContainer: {
-        width: 47, // Размер контейнера
+        width: 47,
         height: 47,
-        backgroundColor: 'rgba(59,130,246,0.4)', // Розовый фон с прозрачностью
-        borderRadius: 40, // Для круга
-        alignItems: 'center', // Центрирование содержимого по горизонтали
-        justifyContent: 'center', // Центрирование содержимого по вертикали
+        backgroundColor: 'rgba(77,201,169,0.4)',
+        borderRadius: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
 
     },
 });

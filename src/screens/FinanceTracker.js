@@ -136,7 +136,7 @@ export default function FinanceTracker() {
         <View style={styles.container}>
             {/* Заголовок (Dashboard) + баланс в правом верхнем углу */}
             <View style={styles.header}>
-                <Text style={styles.title}>Dashboard</Text>
+
                 <TouchableOpacity style={styles.balanceBlock} onPress={openBalanceModal}>
                     <Image source={require('../assets/dollar-symbol.png')} style={styles.balanceIcon} />
                     <Text style={styles.balanceText}>{balance}</Text>
@@ -210,12 +210,20 @@ const styles = StyleSheet.create({
         paddingTop: 40,
     },
     balanceBlock:{
-        flexDirection: 'row'
+        flexDirection: 'row-reverse',
+        alignItems: 'center',
+        flex: 1,
+        marginTop: 20,
     },
     balanceIcon:{
+        alignSelf: 'center',
         width: 20,
         height: 20,
+    },
+    balanceText: {
 
+        fontSize: 17,
+        fontWeight: 'bold',
     },
 
     header: {
@@ -234,11 +242,6 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 24,
-        fontWeight: 'bold',
-    },
-    balanceText: {
-
-        fontSize: 17,
         fontWeight: 'bold',
     },
     blockContainer: {

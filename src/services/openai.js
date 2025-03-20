@@ -3,7 +3,11 @@ import axios from 'axios';
 
 // В этом примере ключ берётся напрямую из файла, однако в реальном
 // приложении лучше хранить его в .env или на сервере (в целях безопасности).
+<<<<<<< HEAD
 const openaiApiKey = '';
+=======
+const openaiApiKey = 'your api';
+>>>>>>> 2368623 (Update)
 
 // Функция generateIdeas принимает prompt (строку, подготовленную на основе ответов пользователя).
 export async function generateIdeas(prompt) {

@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import {
+    View,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    StyleSheet,
+    Alert,
+    Image,
+    TouchableWithoutFeedback, Keyboard
+} from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../services/firebase';
 
@@ -20,9 +29,20 @@ export function LoginScreen({ navigation }) {
     };
 
     return (
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.container}>
-            <Text style={styles.title}>Login here</Text>
-            <Text style={styles.subtitle}>Welcome back you've been missed!</Text>
+            <View style={styles.iconcont}>
+                <Image
+                    source={require('../assets/logo1.png')}
+                    style={styles.logo}
+                />
+            </View>
+
+            <View style={styles.titlecon}>
+                <Text style={styles.title}>Idea</Text>
+                <Text style={styles.title1}>Generator</Text>
+            </View>
+
 
             <TextInput
                 style={styles.input}
@@ -53,6 +73,7 @@ export function LoginScreen({ navigation }) {
                 <Text style={styles.link}>Create new account</Text>
             </TouchableOpacity>
         </View>
+        </TouchableWithoutFeedback>
     );
 }
 
@@ -64,11 +85,35 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5F5F5',
         padding: 20,
     },
+    iconcont:{
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    logo:{
+      width: 80,
+      height: 80,
+      marginBottom: 20,
+
+    },
+    titlecon: {
+        justifyContent: 'center', // Центрирование по вертикали
+        alignItems: 'center',
+        flexDirection: 'row',
+        marginBottom: 20,
+    },
     title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#333',
+        fontSize: 40,
+        fontWeight: 'sans-serif',
+        color: '#4dc9a9',
         marginBottom: 10,
+        fontFamily: 'Helvetica',
+    },
+    title1: {
+        fontSize: 40,
+        fontWeight: 'sans-serif',
+        color: '#30437a',
+        marginBottom: 10,
+        fontFamily: 'Helvetica',
     },
     subtitle: {
         fontSize: 16,
@@ -83,22 +128,30 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingHorizontal: 15,
         marginBottom: 15,
-        borderWidth: 1,
+
         borderColor: '#DDD',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+
     },
     forgotPassword: {
         fontSize: 14,
-        color: '#3B82F6',
+        color: '#30437a',
         alignSelf: 'flex-end',
         marginBottom: 20,
     },
     button: {
         width: '100%',
-        backgroundColor: '#3B82F6',
+        backgroundColor: '#30437a',
         borderRadius: 10,
         paddingVertical: 15,
         alignItems: 'center',
         marginBottom: 20,
+
     },
     buttonText: {
         color: '#FFF',
@@ -107,6 +160,6 @@ const styles = StyleSheet.create({
     },
     link: {
         fontSize: 14,
-        color: '#3B82F6',
+        color: '#30437a',
     },
 });
